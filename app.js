@@ -18,6 +18,11 @@ var app=express();
 var path = require("path")
 
 
+var users=require('./users/usersRouting');
+var orders=require('./orders/oredersRouting');
+var invoice=require('./invoice/invoiceRouting')
+
+
 
 app.use(function (req, res, next) {
     res.setHeader('X-Powered-By', 'IITM')
@@ -40,7 +45,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-
+app.use('/user',users)
+app.use('/orders',orders)
+app.use('/invoice',invoice)
 
 
 
